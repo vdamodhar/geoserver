@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: oscgeoserver 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oscgeoserver
+  template:
+    metadata:
+      labels:
+        app: oscgeoserver 
+    spec:
+      containers:
+        - name: oscgeoserver 
+          image: oscregistry.azurecr.io/oscgeoserver
+          ports:
+          - containerPort: 80
